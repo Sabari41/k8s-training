@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: nginx-rs
+  namespace: sabari
+  labels: 
+    name: rs-label
+    type: back-end
+spec: 
+  template: 
+
+    metadata:
+      name: nginx
+      namespace: sabari
+      labels:
+        name: sab-app
+        type: front-end
+
+    spec:
+      containers:
+        - name: nginx-demo
+          image: nginx
+
+  replicas: 2
+  selector: 
+    matchLabels: 
+      name: sab-app
+      type: front-end
+

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: sab-app
+  type: front-end
+
+spec:
+  containers: 
+    - name: nginx-demo
+      image: nginx

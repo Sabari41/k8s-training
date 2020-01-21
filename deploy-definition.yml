@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx-deploy
+  namespace: sabari
+  labels: 
+    name: deploy-label
+    type: front-end
+spec: 
+  template: 
+
+    metadata:
+      name: nginx
+      namespace: sabari
+      labels:
+        name: sab-app
+        type: front-end
+
+    spec:
+      containers:
+        - name: nginx-demo
+          image: nginx:1.17
+      nodeSelector:
+        type: front-end
+        tier: front-end
+
+  replicas: 3
+  selector: 
+    matchLabels: 
+      name: sab-app
+      type: front-end
+
