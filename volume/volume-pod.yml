@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins
+  namespace: sabari
+  labels:
+    name: jenkins
+    type: server
+spec:
+  containers:
+    - name: jenkins
+      image: jenkins/jenkins:lts
